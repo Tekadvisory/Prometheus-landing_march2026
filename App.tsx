@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
   Shield, 
   Flame,
@@ -327,187 +328,200 @@ const UI_TEXT: Record<Language, any> = {
   en: {
     nav: { manifesto: "Briefing", services: "Advisory", education: "Education", foundry: "AI Foundry", expertise: "Fields", contact: "Contact" },
     domains: {
-      subtitle: "Focus Areas",
-      title: "Core Domains of Expertise.",
+      subtitle: "Focus",
+      title: "Core Expertise.",
+      intro: "Power transition, the end of globalization, the advent of AI — three simultaneous disruptions that redefine who wins and who loses. Prometheus helps you get ahead thanks to our areas of strategic expertise.",
       items: [
-        { title: "Public Regulation", icon: <Scale size={24} /> },
+        { title: "Regulation", icon: <Scale size={24} /> },
         { title: "Tech", icon: <Cpu size={24} /> },
         { title: "Defense", icon: <Shield size={24} /> },
         { title: "Europe", icon: <Map size={24} /> },
-        { title: "International", icon: <Globe size={24} /> }
+        { title: "Global", icon: <Globe size={24} /> }
       ]
     },
-    solutions: { subtitle: "Engagement Models", title: "Strategic Solutions." },
+    solutions: { subtitle: "Our services", title: "Strategic Solutions." },
     hero: {
       tag: "Status: Operative",
-      headline: "Navigate uncertainty.",
-      headlineItalic: "Execute the advantage.",
-      subheadline: "Prometheus Advisory helps you face the real world amidst strategic acceleration, value chain recomposition, and AI/cyber disruption. Geopolitics is reconfiguring tech.",
+      headline: "Think different is easy.",
+      headlineItalic: "Being right makes the difference.",
+      subheadline: "A new world is emerging. Only those who see clearly survive. Prometheus helps you write your rules — and enforce them.",
       ctaPrimary: "Briefing",
-      ctaSecondary: "View Manifesto",
-      labels: ["Geo-economics", "Geo-tech", "Geo-organization"]
+      ctaSecondary: "Manifesto",
+      labels: ["Geo-economics", "Geo-tech", "Geo-org"]
     },
     visionSection: {
       subtitle: "Doctrine",
-      title: "Accuracy as a strategic advantage.",
-      body: "You cannot escape reality. We help you decide in uncertainty without confusing moral indignation with geopolitical understanding. Think against the consensus to preserve your decisional autonomy.",
+      title: "Accuracy is Advantage.",
+      body: "Reality is inescapable. In a world of radical friction, only the finest endure. We fuse machine speed with human taste. Think against the consensus. Preserve autonomy.",
       pillars: [
-        { title: "Strategic Discernment", desc: "See what your competitors miss to act before they do. Filter out social media noise to accelerate decision-making and preserve your autonomy." },
-        { title: "Multi-Domain Grid", desc: "Decode the redefining of global rules: blocs, sanctions, export controls, sovereignty, and battles over standards." },
-        { title: "Decisional Clarity", desc: "Understand the speed of change, critical dependencies, and reputational exposure to separate reversible from irreversible options." }
+        { title: "Discernment", desc: "See what competitors miss. Filter noise. Act first. Preserve autonomy." },
+        { title: "Global Grid", desc: "Decode new rules: blocs, sanctions, sovereignty, and standards." },
+        { title: "Clarity", desc: "Master speed and dependencies. Separate reversible from terminal options." }
       ]
     },
     useCase: {
-      subtitle: "Operational Truth",
-      title: "Managing strategic complexity.",
-      scenario: "Topic: Dependencies & Compliance",
-      mainstream: {
-        title: "The Consensus",
-        desc: "Enduring rising structural costs (auditability, traceability) while ignoring vulnerabilities in the AI and cloud supply chains.",
-        outcome: "Reactive posture, increased energy and technological dependence."
-      },
-      prometheus: {
-        title: "The Prometheus Approach",
-        desc: "Anticipating the reconfiguration of tech. We analyze dependency risks, governance, and operational models to secure your procurement.",
-        outcome: "Phase advance, preserved sovereignty, and autonomy of action."
-      }
+      subtitle: "A new-generation boutique.",
+      title: "For a shifting world.",
+      intro: "Analysis is not missing. The courage to see what one sees is.",
+      cells: [
+        { label: "The market", body: "Frameworks. Methods. Reports. <b>But still just mainstream.</b>" },
+        { label: "Prometheus", body: "<b>Say what you see. See what you see.</b>", accent: true },
+        { label: "Data vs Judgment", body: "<b>We built the only model that needs both.</b> AI sees what humans miss. Humans conclude where AI cannot." },
+        { label: "Analysis vs Conviction", body: "We help you establish the ground rules <b>so you capitalize on your advantage.</b>" }
+      ],
+      quote: "“Thinking different is easy.”",
+      answer: "Being right makes the difference."
     },
     intelligence: {
       subtitle: "Methodology",
-      title: "The human, critical factor.",
-      story: "There is what AI sees, and what it doesn't. We use AI to optimize what it can see. We add our experience to give perspective to what it cannot. In the age of AI, scarcity is no longer information; it is strategic judgment.",
+      title: "Three layers. Your decision.",
+      story: "Data without judgment is noise. Judgment without data is intuition. Prometheus is structured to respond to the increasing complexity of strategic environments — by articulating what AI does better than humans with what humans do better than AI.",
       synthesis: "Optimized AI. Human Judgment.",
-      aiTitle: "What AI Sees",
-      aiDesc: "Accessing the data that makes a difference and eliminating what creates noise.",
-      humanTitle: "What AI Cannot See",
-      humanDesc: "Decades of cumulative experience and the analytical courage to understand under-the-radar dynamics.",
-      aiItems: [
-        { title: "Weak Signals", desc: "Identifying global dynamics and actor interactions at machine speed.", icon: <Database size={18} /> },
-        { title: "Noise Filtration", desc: "Eliminating ambient noise to extract pure strategic data.", icon: <Binary size={18} /> }
-      ],
-      humanItems: [
-        { title: "Perspective", desc: "Contextualizing raw data against geo-economic and geo-tech realities.", icon: <Users size={18} /> },
-        { title: "Analytical Courage", desc: "The ability to think against the consensus and assume contrarian decisions.", icon: <History size={18} /> }
+      layers: [
+        { 
+          id: 'ai',
+          title: "AI Foundry", 
+          subtitle: "Proprietary IA Agent Library", 
+          desc: "Regulatory monitoring, ecosystem mapping, geopolitical OSINT, predictive compliance, supply chain — real-time, global scale.",
+          dot: "bg-emerald-500",
+          shadow: "shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+        },
+        { 
+          id: 'specialists',
+          title: "Hyper-specialists", 
+          subtitle: "Global Expert Network", 
+          desc: "Cutting-edge analysis from experts who know their industry from the inside (finance, industry, energy, regulation).",
+          dot: "bg-indigo-500",
+          shadow: "shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+        },
+        { 
+          id: 'strategic',
+          title: "Strategic Intelligence", 
+          subtitle: "Judgment, experience, culture", 
+          desc: "Transforming analysis into a stand. Common sense, courage, and general culture — what AI lacks alone.",
+          dot: "bg-amber-600",
+          shadow: "shadow-[0_0_10px_rgba(217,119,6,0.5)]"
+        }
       ]
     },
     foundryPage: {
-      subtitle: "Intelligence Assets",
-      title: "AI Project Index.",
-      intro: "We deploy proprietary AI to extract the most accurate strategic visions, forming the foundation of a new generation advisory boutique.",
-      previewCta: "Explore Full Index",
+      subtitle: "AI Foundry",
+      title: "Our team of AI agents",
+      intro: "Proprietary AI for accurate vision. The foundation of next-gen advisory.",
+      previewCta: "Explore Index",
       filters: {
-        industry: "Strategic Sphere",
-        tech: "Capability Stack",
-        business: "Strategic Domain",
-        all: "All Assets"
+        industry: "Sphere",
+        tech: "Capability",
+        business: "Domain",
+        all: "All"
       }
     },
     briefingsPage: {
-      subtitle: "Intelligence Reports",
+      subtitle: "Reports",
       title: "Tactical Insights.",
-      back: "Return to Archives"
+      back: "Archives"
     },
     manifestoPage: {
-      subtitle: "The Conceptual Lead",
+      subtitle: "The Lead",
       title: "Reality has no substitute.",
-      discernment: "Thinking against the consensus is the only way to find truths that drive advantage.",
+      discernment: "Contrarian thinking is the only path to advantage.",
       points: [
-        "Eliminate social media noise to recover true speed and protect your decisional autonomy.",
-        "Decrypt the brutal redefinition of global rules to impose yourself in the geostrategic revolution.",
-        "Analyze reversible vs irreversible options within the complexity of strategic environments."
+        "Eliminate noise. Recover speed. Protect autonomy.",
+        "Decrypt brutal rules. Dominate the geostrategic revolution.",
+        "Analyze reversible vs terminal options in complex environments."
       ],
-      militarization: "Conflictuality is the new economic order. Fog in business is naturally political. There is no limit to the return of raw power: supply chain warfare, extraterritoriality, cognitive shock. We do not escape reality.",
-      regain: "Regain the conceptual lead. Execute the advantage in the battles that haven't been fought yet.",
+      militarization: "Conflict is the new order. Business fog is political. Power is back: supply chain warfare, extraterritoriality, cognitive shock. We face reality.",
+      regain: "Regain the lead. Execute advantage in the battles ahead.",
       intelligenceArchitecture: {
-        title: "AI AGENTS & HUMAN INTELLIGENCE.",
-        aiTitle: "Proprietary AI Agents",
-        aiDescription: "WE BUILD AND DEPLOY PROPRIETARY AGENTS TO TRANSFORM INFORMATIONAL CHAOS INTO ACTIONABLE DECISIONS.",
+        title: "AI & HUMAN INTELLIGENCE.",
+        aiTitle: "Proprietary Agents",
+        aiDescription: "WE TRANSFORM CHAOS INTO ACTIONABLE DECISIONS.",
         aiItems: [
-          { title: "Automated OSINT", desc: "FILTERING, CORRELATION ANALYSIS, AND ANOMALY DETECTION FROM OPEN SOURCES (MEDIA, THINK TANKS, WEAK SIGNALS).", icon: <Database size={24} /> },
-          { title: "Analytics Engine", desc: "GEOPOLITICAL, TECHNICAL, AND SOCIAL INTERPRETATION GRIDS BASED ON HIGH-FIDELITY ANALYSIS DOCTRINES.", icon: <Binary size={24} /> },
-          { title: "AcademIA", desc: "DIRECT ACCESS TO ACADEMIC EXPERTISE AND THE MOST RECENT FUNDAMENTAL RESEARCH PAPERS.", icon: <GraduationCap size={24} /> }
+          { title: "Auto OSINT", desc: "FILTERING, CORRELATION, AND ANOMALY DETECTION.", icon: <Database size={24} /> },
+          { title: "Analytics", desc: "HIGH-FIDELITY GEOPOLITICAL AND TECHNICAL INTERPRETATION.", icon: <Binary size={24} /> },
+          { title: "AcademIA", desc: "DIRECT ACCESS TO FUNDAMENTAL RESEARCH.", icon: <GraduationCap size={24} /> }
         ],
-        humanTitle: "The Human Decisional Layer",
-        humanDescription: "HUMAN EXPERIENCED EXPERTISE MOBILIZED TO VALIDATE AND CONTEXTUALIZE MACHINE SIGNALS.",
+        humanTitle: "Decisional Layer",
+        humanDescription: "EXPERIENCED EXPERTISE TO CONTEXTUALIZE MACHINE SIGNALS.",
         humanItems: [
-          { title: "Core Culture", desc: "DEEP FUNDAMENTAL KNOWLEDGE IN HISTORY AND SCIENCE WHERE AI LOGIC ENDS.", icon: <History size={24} /> },
-          { title: "High-Level Mobilization", desc: "DIRECT ENGAGEMENT WITH SENIOR DECISION-MAKERS AND HIGH-FRICTION FIELD EXPERTS.", icon: <Users size={24} /> },
-          { title: "Multi-sector Polyvalence", desc: "CROSS-INDUSTRY EXPERTISE TO DETECT CONTAMINATION OF RISKS BETWEEN DOMAINS.", icon: <Layers size={24} /> }
+          { title: "Core Culture", desc: "DEEP KNOWLEDGE IN HISTORY AND SCIENCE.", icon: <History size={24} /> },
+          { title: "High-Level", desc: "DIRECT ENGAGEMENT WITH SENIOR DECISION-MAKERS.", icon: <Users size={24} /> },
+          { title: "Polyvalence", desc: "CROSS-INDUSTRY EXPERTISE TO DETECT RISK CONTAMINATION.", icon: <Layers size={24} /> }
         ]
       },
-      whyPrometheusTitle: "Prometheus: The Bringer of Fire",
-      whyPrometheusIntro: "The titan who stole fire from the gods to illuminate humanity's path in the dark.",
+      whyPrometheusTitle: "Prometheus: Bringer of Fire",
+      whyPrometheusIntro: "The titan who stole fire to illuminate the dark.",
       howItInspires: [
-        { title: "Flow Control", desc: "Injecting critical intelligence where it accelerates the most." },
-        { title: "Passage Creation", desc: "Finding exits in strategic dead-ends." },
-        { title: "Strategic Asymmetry", desc: "Assume the side-step. Gain advantage through non-obvious options." },
-        { title: "Raw Realism", desc: "No sugar-coating. Just the hard facts." }
+        { title: "Flow Control", desc: "Injecting intelligence where it accelerates most." },
+        { title: "Passage", desc: "Finding exits in strategic dead-ends." },
+        { title: "Asymmetry", desc: "Advantage through non-obvious options." },
+        { title: "Realism", desc: "No sugar-coating. Hard facts." }
       ]
     },
     expertisePage: {
-      subtitle: "Operational Domains",
+      subtitle: "Domains",
       hero: "Intelligence Fields.",
-      intro: "Where power, technology, and shipping nodes collide. We operate in high-friction environments.",
+      intro: "Where power and tech collide. We operate in high-friction environments.",
       domains: [
-        { id: "reg", title: "Global Regulation", icon: <FileText size={24} />, desc: "Navigating extraterritoriality and cognitive warfare.", tags: ["Lawfare", "Sovereignty", "Lobbying"] },
-        { id: "tech", title: "Tech & AI Autonomy", icon: <Cpu size={24} />, desc: "Transforming informational chaos into signals.", tags: ["OSINT", "Agentic IA", "Cyber"] },
-        { id: "def", title: "Defense Economy", icon: <Shield size={24} />, desc: "Securing critical dependencies.", tags: ["Resilience", "Strategic Stock", "Armor"] },
-        { id: "int", title: "Geopolitical Extraction", icon: <Globe size={24} />, desc: "Mapping the return of raw power.", tags: ["Risk Mapping", "Brussels", "Trade War"] }
+        { id: "reg", title: "Global Regulation", icon: <FileText size={24} />, desc: "Extraterritoriality and cognitive warfare.", tags: ["Lawfare", "Sovereignty", "Lobbying"] },
+        { id: "tech", title: "Tech Autonomy", icon: <Cpu size={24} />, desc: "Transforming chaos into signals.", tags: ["OSINT", "Agentic AI", "Cyber"] },
+        { id: "def", title: "Defense Economy", icon: <Shield size={24} />, desc: "Securing critical dependencies.", tags: ["Resilience", "Stocks", "Armor"] },
+        { id: "int", title: "Geopolitics", icon: <Globe size={24} />, desc: "Mapping the return of raw power.", tags: ["Risk", "Brussels", "Trade War"] }
       ]
     },
     servicesPage: {
-      subtitle: "Command control",
+      subtitle: "Command",
       title: "Advisory",
-      cta: "Explore Advisory Framework",
-      intro: "Tailored engagement models designed for leaders who must navigate radical uncertainty and complex geopolitical friction.",
+      cta: "Explore Framework",
+      intro: "Align your trajectory with the coming global friction. We decode power to protect your sovereignty.",
       items: [
         { 
           title: "Strategic Advisory", 
           subtitle: "Master Brief", 
           icon: <Briefcase size={24} />,
-          desc: "A radical realignment of your corporate posture. We audit your operational sovereignty, map your exposure to global risks, and redefine your strategic trajectory.",
-          features: ["Comprehensive Sovereignty Audit", "Market Decoupling Strategy", "Executive Concept Training"]
+          desc: "Radical realignment. We audit sovereignty, map exposure, and redefine your trajectory.",
+          features: ["Sovereignty Audit", "Decoupling Strategy", "Executive Training"]
         },
         { 
-          title: "Fresh Eyes Opinion", 
+          title: "Fresh Eyes", 
           subtitle: "Red Teaming", 
           icon: <Eye size={24} />,
-          desc: "Rigorous stress-testing of your core assumptions. We act as the opposition force to expose blind spots, challenge consensus, and fortify your decision-making.",
-          features: ["Blind Spot Extraction", "Strategic Pre-mortem Analysis", "Dissidence Simulation"]
+          desc: "Stress-testing assumptions. We expose blind spots and challenge the consensus.",
+          features: ["Blind Spot Extraction", "Pre-mortem Analysis", "Dissidence Simulation"]
         },
         { 
-          title: "Intelligence Loop", 
+          title: "Continuous intelligence", 
           subtitle: "Signal 24/7", 
           icon: <Radar size={24} />,
-          desc: "Continuous, automated signal extraction paired with elite human analysis. Receive monthly high-fidelity briefings to stay ahead of emerging threats.",
-          features: ["Monthly Signal Report", "Direct OSINT Node Access", "Real-time Threat Correlation"]
+          desc: "Automated signal extraction with elite analysis. Stay ahead of emerging threats.",
+          features: ["Monthly Reports", "OSINT Access", "Real-time Correlation"]
         }
       ]
     },
     educationPage: {
-      subtitle: "Augmented Leadership",
+      subtitle: "Leadership",
       title: "Executive Education.",
-      cta: "View Education Programs",
-      intro: "Transferring the conceptual lead directly to your leadership team through intensive, high-level training modules.",
+      cta: "View Programs",
+      intro: "Transferring strategic lead through intensive high-level immersions for decision-makers.",
       offers: [
         { 
           id: "exco", 
-          title: "Strategic Workforce EXCO", 
+          title: "Strategic EXCO", 
           icon: <Users size={24} />, 
-          desc: "Intensive board-level alignment sessions designed to synchronize your executive committee around new geopolitical realities.",
-          details: ["Geopolitical Stress Tests", "Boardroom Red-Teaming"]
+          desc: "Board-level alignment sessions for new geopolitical realities.",
+          details: ["Stress Tests", "Red-Teaming"]
         },
         { 
           id: "seminars", 
-          title: "Corporate Seminars", 
+          title: "Seminars", 
           icon: <GraduationCap size={24} />, 
-          desc: "Expert-led immersions focusing on specific friction points, providing your teams with the frameworks needed to operate in a contested world.",
-          details: ["Data Sovereignty & Security", "Navigating the War Economy"]
+          desc: "Expert-led immersions on friction points and contested frameworks.",
+          details: ["Data Sovereignty", "War Economy"]
         }
       ]
     },
     teamSection: {
-      subtitle: "The Operatives",
+      subtitle: "Our Command team",
       title: "Strategy Command.",
       members: [
         {
@@ -525,207 +539,255 @@ const UI_TEXT: Record<Language, any> = {
       ]
     },
     contactPage: {
-      subtitle: "Secure Access",
+      subtitle: "Secure",
       title: "Initiate Mandate.",
-      intro: "Establish a secure communication line.",
+      intro: "Establish a secure line.",
       labels: {
-        name: "Identified User",
-        email: "Secure Corporate Mail",
+        name: "User",
+        email: "Secure Mail",
         company: "Organization",
-        subject: "Intent Type",
-        message: "Mandate Brief / Intent",
-        submit: "Send Message",
-        success: "Message transmitted. Handled with absolute discretion."
+        subject: "Intent",
+        message: "Brief",
+        submit: "Transmit",
+        success: "Transmitted. Absolute discretion."
       },
-      subjects: ["Strategic Mandate", "Executive Education", "Defense Briefing", "Red Teaming"]
+      subjects: ["Mandate", "Education", "Defense", "Red Teaming"]
     },
-    finalCta: { title: "Recover the Lead.", desc: "Build strategies your competitors don't.", ctaPrimary: "Establish Session" },
-    footer: { quote: "Bypass the consensus. Navigate the new rules.", legal: "Protocols", privacy: "Data Policy", methodology: "Theory of Action" }
+    finalCta: { title: "Recover the Lead.", desc: "Build strategies others can't.", ctaPrimary: "Establish Session" },
+    useCaseTaiwan: {
+      subtitle: "Simulation",
+      title: "The Taiwan Equation.",
+      intro: "What if China seizes Taiwan? We analyze irreversible shifts in Tech & Finance.",
+      scenario: "Kinetic Reunification & Global Blockade",
+      methodology: {
+        ai: {
+          title: "AI: The Watchers",
+          desc: "Proprietary agents monitoring friction points standard audits miss.",
+          items: [
+            { title: "OSINT Node", desc: "Real-time tracking of maritime logistics and mobilization signals.", icon: <Radar size={24} /> },
+            { title: "Tech Graph", desc: "Mapping TSMC dependencies and value chain choke points.", icon: <Cpu size={24} /> },
+            { title: "Sanction Engine", desc: "Predictive modeling of 'Digital Iron Curtains' on financial flows.", icon: <Binary size={24} /> }
+          ]
+        },
+        advisory: {
+          title: "Advisory: Decision",
+          desc: "Human judgment navigating the end of linear globalization.",
+          items: [
+            { title: "Decoupling", desc: "Phased exit from high-risk dependencies without losing speed.", icon: <Split size={24} /> },
+            { title: "Red Teaming", desc: "Stress-testing strategy against total US-China tech decoupling.", icon: <Eye size={24} /> },
+            { title: "Fresh Eyes", desc: "Contrarian views on the 'One China' consensus.", icon: <Target size={24} /> }
+          ]
+        },
+        education: {
+          title: "Education: Shield",
+          desc: "Transferring the lead to your executive committee.",
+          items: [
+            { title: "EXCO War Games", desc: "Simulating the first 72 hours of conflict to find failure points.", icon: <Shield size={24} /> },
+            { title: "War Economy", desc: "Training teams to operate in high-friction, sanctioned environments.", icon: <GraduationCap size={24} /> }
+          ]
+        }
+      },
+      cta: "Request Simulation Briefing"
+    },
+    footer: { quote: "Bypass consensus. Navigate the new rules.", legal: "Protocols", privacy: "Policy", methodology: "Action" }
   },
   fr: {
     nav: { manifesto: "Briefing", services: "Advisory", education: "Formation", foundry: "AI Foundry", expertise: "Champs", contact: "Contact" },
     domains: {
-      subtitle: "Domaines",
-      title: "Nos domaines d’expertise privilégiée.",
+      subtitle: "Focus",
+      title: "Expertise Centrale.",
+      intro: "Transition de puissance, fin de la mondialisation, avènement de l'IA — trois ruptures simultanées qui redéfinissent qui gagne et qui perd. Prometheus vous aide à en faire une longueur d'avance grâce à nos domaines d'expertises stratégiques.",
       items: [
-        { title: "Régulation publique", icon: <Scale size={24} /> },
+        { title: "Régulation", icon: <Scale size={24} /> },
         { title: "Tech", icon: <Cpu size={24} /> },
         { title: "Défense", icon: <Shield size={24} /> },
         { title: "Europe", icon: <Map size={24} /> },
-        { title: "International", icon: <Globe size={24} /> }
+        { title: "Global", icon: <Globe size={24} /> }
       ]
     },
-    solutions: { subtitle: "Modèles d'Engagement", title: "Solutions Stratégiques." },
+    solutions: { subtitle: "Nos services", title: "Solutions Stratégiques." },
     hero: {
       tag: "Statut : Opérationnel",
-      headline: "Naviguez dans l'incertitude.",
-      headlineItalic: "Exécutez l'avantage.",
-      subheadline: "Prometheus Advisory aide à regarder le monde réel dans un contexte d’accélération stratégique, de recomposition des chaînes de valeur et de disruption IA/cybernétique. La géopolitique reconfigure la tech.",
+      headline: "Penser différemment est facile.",
+      headlineItalic: "Avoir raison fait la différence.",
+      subheadline: "Un nouveau monde émerge. Seuls ceux qui voient juste survivent. Prometheus vous aide à écrire vos règles — et à les imposer.",
       ctaPrimary: "Briefing",
-      ctaSecondary: "Voir Manifeste",
-      labels: ["Géo-économie", "Géo-tech", "Géo-organisation"]
+      ctaSecondary: "Manifeste",
+      labels: ["Géo-économie", "Géo-tech", "Géo-org"]
     },
     visionSection: {
       subtitle: "Doctrine",
-      title: "La justesse comme avantage stratégique.",
-      body: "On n'échappe pas au réel. Nous vous aidons à décider dans l'incertitude sans confondre indignation morale et compréhension géopolitique. Penser contre le consensus pour retrouver votre autonomie décisionnelle.",
+      title: "La Justesse est l'Avantage.",
+      body: "Le réel est incontournable. Dans un monde de friction radicale, seuls les plus fins perdurent. Nous fusionnons vitesse machine et saveur humaine. Pensez contre le consensus. Préservez l'autonomie.",
       pillars: [
-        { title: "Discernement Stratégique", desc: "Voir ce que vos concurrents ne voient pas pour agir avant eux. Enlever le bruit des réseaux sociaux pour accélérer la décision." },
-        { title: "Lecture Multi-Milieux", desc: "Décrypter la redéfinition des règles du jeu mondial : blocs, sanctions, contrôles export, souverainetés et batailles de standards." },
-        { title: "Clarté Décisionnelle", desc: "Comprendre la vitesse du changement, les dépendances critiques et l'exposition réputationnelle pour distinguer les options réversibles des irréversibles." }
+        { title: "Discernement", desc: "Voir ce que les concurrents manquent. Filtrer le bruit. Agir d'abord. Préserver l'autonomie." },
+        { title: "Grille Globale", desc: "Décrypter les nouvelles règles : blocs, sanctions, souveraineté et standards." },
+        { title: "Clarté", desc: "Maîtriser la vitesse et les dépendances. Distinguer options réversibles et terminales." }
       ]
     },
     useCase: {
-      subtitle: "Vérité Opérationnelle",
-      title: "Gérer la complexité stratégique.",
-      scenario: "Sujet : Dépendances & Compliance",
-      mainstream: {
-        title: "Le Consensus",
-        desc: "Subir la hausse des coûts structurels (auditabilité, traçabilité) et ignorer les vulnérabilités de la chaîne IA et cloud.",
-        outcome: "Posture réactive, dépendance énergétique et technologique accrue."
-      },
-      prometheus: {
-        title: "L'Approche Prometheus",
-        desc: "Anticiper la reconfiguration de la tech. Nous analysons les risques de dépendance, la gouvernance et le modèle opérationnel pour sécuriser votre procurement.",
-        outcome: "Avance de phase, souveraineté préservée et autonomie d'action."
-      }
+      subtitle: "Une boutique nouvelle génération.",
+      title: "Pour un monde qui bascule.",
+      intro: "Ce n'est pas l'analyse qui manque. C'est le courage de voir ce que l'on voit.",
+      cells: [
+        { label: "Le marché", body: "Frameworks. Méthodes. Rapports. <b>Mais toujours le consensus.</b>" },
+        { label: "Prometheus", body: "<b>Dire ce que l'on voit. Voir ce que l'on voit.</b>", accent: true },
+        { label: "Donnée vs jugement", body: "<b>Nous avons bâti le seul modèle qui nécessite les deux.</b> L'IA capte ce que l'humain rate. L'humain conclut là où l'IA ne peut pas." },
+        { label: "Analyse vs conviction", body: "Nous vous aidons à établir les règles du jeu <b>pour capitaliser sur votre avantage.</b>" }
+      ],
+      quote: "« Penser différemment est facile. »",
+      answer: "Avoir raison fait la différence."
     },
     intelligence: {
       subtitle: "Méthodologie",
-      title: "L'humain, facteur critique.",
-      story: "Il y a ce que l’IA voit et ce qu’elle ne voit pas. On utilise l’IA pour optimiser ce qu’elle sait voir. On ajoute notre expérience pour donner de la perspective à ce qu’elle ne voit pas. À l’âge de l’IA, la rareté n’est plus l’information, c’est le jugement stratégique.",
+      title: "Trois couches. Votre décision.",
+      story: "La donnée sans jugement est du bruit. Le jugement sans données est de l'intuition. Prometheus est structuré pour répondre à la complexité croissante des environnements stratégiques — en articulant ce que l’IA fait mieux que l’humain avec ce que l’humain fait mieux que l’IA.",
       synthesis: "IA Optimisée. Jugement Humain.",
-      aiTitle: "Ce que l'IA voit",
-      aiDesc: "Accéder aux données qui font la différence et éliminer celles qui créent du bruit.",
-      humanTitle: "Ce que l'IA ne voit pas",
-      humanDesc: "Des décennies d'expérience cumulée et le courage analytique pour comprendre sous-les-radars.",
-      aiItems: [
-        { title: "Signaux Faibles", desc: "Identification des dynamiques globales et des interactions d'acteurs à la vitesse de la machine.", icon: <Database size={18} /> },
-        { title: "Filtre Anti-Bruit", desc: "Élimination du bruit ambiant pour extraire la donnée stratégique pure.", icon: <Binary size={18} /> }
-      ],
-      humanItems: [
-        { title: "Perspective", desc: "Mise en contexte des données brutes face aux réalités géo-économiques et géo-tech.", icon: <Users size={18} /> },
-        { title: "Courage Analytique", desc: "Capacité à penser contre le consensus et à assumer des décisions à contre-courant.", icon: <History size={18} /> }
+      layers: [
+        { 
+          id: 'ai',
+          title: "AI Foundry", 
+          subtitle: "Librairie d'agents IA propriétaire", 
+          desc: "Veille réglementaire, cartographie des écosystèmes, OSINT géopolitique, compliance prédictive, supply chain — en temps réel, à l'échelle mondiale.",
+          dot: "bg-emerald-500",
+          shadow: "shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+        },
+        { 
+          id: 'specialists',
+          title: "Hyper-spécialistes", 
+          subtitle: "Réseau d'experts sectoriels", 
+          desc: "Des analyses de pointe produites par des experts qui connaissent leur secteur de l'intérieur — finance, industrie, santé, énergie, régulation.",
+          dot: "bg-indigo-500",
+          shadow: "shadow-[0_0_10px_rgba(99,102,241,0.5)]"
+        },
+        { 
+          id: 'strategic',
+          title: "Intelligence stratégique", 
+          subtitle: "Jugement, expérience, culture", 
+          desc: "Transformer l'analyse en position assumée. Bon sens, expérience de terrain, courage intellectuel et culture générale — ce qui manque à toute IA seule.",
+          dot: "bg-amber-600",
+          shadow: "shadow-[0_0_10px_rgba(217,119,6,0.5)]"
+        }
       ]
     },
     foundryPage: {
-      subtitle: "Actifs d'Intelligence",
-      title: "Index des Projets IA.",
-      intro: "Nous déployons une IA propriétaire pour extraire les visions stratégiques les plus précises, formant le socle d'une boutique de conseil d'une nouvelle génération.",
-      previewCta: "Explorer l'Index complet",
+      subtitle: "AI Foundry",
+      title: "Notre équipe d'agents IA",
+      intro: "IA propriétaire pour une vision juste. Le socle du conseil de nouvelle génération.",
+      previewCta: "Explorer l'Index",
       filters: {
-        industry: "Sphère Stratégique",
-        tech: "Capacités Tech",
-        business: "Domaine Stratégique",
+        industry: "Sphère",
+        tech: "Capacité",
+        business: "Domaine",
         all: "Tous"
       }
     },
     briefingsPage: {
-      subtitle: "Rapports d'Intelligence",
+      subtitle: "Rapports",
       title: "Insights Tactiques.",
-      back: "Retour aux Archives"
+      back: "Archives"
     },
     manifestoPage: {
-      subtitle: "Le Concept d'Avance",
+      subtitle: "L'Avance",
       title: "La réalité n'a pas de substitut.",
-      discernment: "Penser contre le consensus est le seul moyen de trouver les vérités qui créent l'avantage.",
+      discernment: "La pensée à contre-courant est la seule voie vers l'avantage.",
       points: [
-        "Éliminer le bruit des réseaux sociaux pour retrouver la vraie vitesse et protéger votre autonomie décisionnelle.",
-        "Décrypter la redéfinition brutale des règles mondiales pour vous imposer dans la révolution géostratégique.",
-        "Analyser les options réversibles vs irréversibles dans la complexité des environnements stratégiques."
+        "Éliminer le bruit. Retrouver la vitesse. Protéger l'autonomie.",
+        "Décrypter les règles brutales. Dominer la révolution géostratégique.",
+        "Analyser les options réversibles vs terminales en milieu complexe."
       ],
-      militarization: "La conflictualité est le nouvel ordre économique. Le brouillard dans les affaires est naturellement politique. Il n'y a pas de limite au retour de la puissance brute : guerre des chaînes d'approvisionnement, extraterritorialité, choc cognitif. Nous n'échappons pas à la réalité.",
-      regain: "Retrouvez le concept d'avance. Exécutez l'avantage dans les batailles qui n'ont pas encore été menées.",
+      militarization: "Le conflit est le nouvel ordre. Le brouillard des affaires est politique. La puissance est de retour : guerre logistique, extraterritorialité, choc cognitif. Face au réel.",
+      regain: "Retrouvez l'avance. Exécutez l'avantage dans les batailles à venir.",
       intelligenceArchitecture: {
-        title: "AGENTS IA & INTELLIGENCE HUMAINE.",
-        aiTitle: "Agents IA Propriétaires",
-        aiDescription: "NOUS CONSTRUISONS ET DÉPLOYONS DES AGENTS PROPRIÉTAIRES POUR TRANSFORMER LE CHAOS INFORMATIONNEL EN DÉCISIONS ACTIONNABLES.",
+        title: "IA & INTELLIGENCE HUMAINE.",
+        aiTitle: "Agents Propriétaires",
+        aiDescription: "NOUS TRANSFORMONS LE CHAOS EN DÉCISIONS ACTIONNABLES.",
         aiItems: [
-          { title: "OSINT Automatisé", desc: "FILTRAGE, ANALYSE DE CORRÉLATION ET DÉTECTION D'ANOMALIES À PARTIR DE SOURCES OUVERTES (MÉDIAS, THINK TANKS, SIGNAUX FAIBLES).", icon: <Database size={24} /> },
-          { title: "Moteur Analytique", desc: "GRILLES D'INTERPRÉTATION GÉOPOLITIQUES, TECHNIQUES ET SOCIALES BASÉES SUR DES DOCTRINES D'ANALYSE HAUTE FIDÉLITÉ.", icon: <Binary size={24} /> },
-          { title: "AcademIA", desc: "ACCÈS DIRECT À L'EXPERTISE ACADÉMIQUE ET AUX DOCUMENTS DE RECHERCHE FONDAMENTALE LES PLUS RÉCENTS.", icon: <GraduationCap size={24} /> }
+          { title: "OSINT Auto", desc: "FILTRAGE, CORRÉLATION ET DÉTECTION D'ANOMALIES.", icon: <Database size={24} /> },
+          { title: "Analytique", desc: "INTERPRÉTATION GÉOPOLITIQUE ET TECHNIQUE HAUTE FIDÉLITÉ.", icon: <Binary size={24} /> },
+          { title: "AcademIA", desc: "ACCÈS DIRECT À LA RECHERCHE FONDAMENTALE.", icon: <GraduationCap size={24} /> }
         ],
-        humanTitle: "La Couche Décisionnelle Humaine",
-        humanDescription: "UNE EXPERTISE HUMAINE EXPÉRIMENTÉE MOBILISÉE POUR VALIDER ET CONTEXTUALISER LES SIGNAUX DE LA MACHINE.",
+        humanTitle: "Couche Décisionnelle",
+        humanDescription: "EXPERTISE EXPÉRIMENTÉE POUR CONTEXTUALISER LA MACHINE.",
         humanItems: [
-          { title: "Culture Fondamentale", desc: "CONNAISSANCES FONDAMENTALES PROFONDES EN HISTOIRE ET EN SCIENCE LÀ OÙ LA LOGIQUE DE L'IA S'ARRÊTE.", icon: <History size={24} /> },
-          { title: "Mobilisation de Haut Niveau", desc: "ENGAGEMENT DIRECT AVEC DES DÉCIDEURS SENIORS ET DES EXPERTS TERRAIN SUR LES ZONES DE HAUTE FRICTION.", icon: <Users size={24} /> },
-          { title: "Polyvalence Multi-sectorielle", desc: "EXPERTISE INTER-INDUSTRIES POUR DÉTECTER LA CONTAMINATION DES RISQUES ENTRE LES DOMAINES.", icon: <Layers size={24} /> }
+          { title: "Culture", desc: "CONNAISSANCES PROFONDES EN HISTOIRE ET SCIENCE.", icon: <History size={24} /> },
+          { title: "Haut Niveau", desc: "ENGAGEMENT DIRECT AVEC LES DÉCIDEURS SENIORS.", icon: <Users size={24} /> },
+          { title: "Polyvalence", desc: "EXPERTISE INTER-INDUSTRIES CONTRE LA CONTAMINATION DES RISQUES.", icon: <Layers size={24} /> }
         ]
       },
-      whyPrometheusTitle: "Prometheus : Le Porteur de Feu",
-      whyPrometheusIntro: "Le titan qui a volé le feu aux dieux pour illuminer le chemin de l'humanité dans l'obscurité.",
+      whyPrometheusTitle: "Prometheus : Porteur de Feu",
+      whyPrometheusIntro: "Le titan qui vola le feu pour éclairer les ténèbres.",
       howItInspires: [
-        { title: "Contrôle des Flux", desc: "Injecter l'intelligence critique là où elle accélère le plus." },
-        { title: "Création de Passages", desc: "Trouver des sorties dans les impasses stratégiques." },
-        { title: "Asymétrie Stratégique", desc: "Assumer le pas de côté. Obtenir l'avantage par des options non évidentes." },
-        { title: "Réalisme Brut", desc: "Pas d'édulcoration. Juste les faits bruts." }
+        { title: "Contrôle des Flux", desc: "Injecter l'intelligence là où elle accélère le plus." },
+        { title: "Passage", desc: "Trouver des issues dans les impasses stratégiques." },
+        { title: "Asymétrie", desc: "Avantage par des options non évidentes." },
+        { title: "Réalisme", desc: "Pas d'édulcoration. Faits bruts." }
       ]
     },
     expertisePage: {
-      subtitle: "Domaines Opérationnels",
+      subtitle: "Domaines",
       hero: "Champs d'Intelligence.",
-      intro: "Là où le pouvoir, la technologie et les nœuds maritimes entrent en collision. Nous opérons dans des environnements à haute friction.",
+      intro: "Où puissance et tech entrent en collision. Nous opérons en haute friction.",
       domains: [
-        { id: "reg", title: "Régulation Mondiale", icon: <FileText size={24} />, desc: "Naviguer dans l'extraterritorialité et la guerre cognitive.", tags: ["Lawfare", "Souveraineté", "Lobbying"] },
-        { id: "tech", title: "Autonomie Tech & IA", icon: <Cpu size={24} />, desc: "Transformer le chaos informationnel en signaux.", tags: ["OSINT", "IA Agentique", "Cyber"] },
-        { id: "def", title: "Économie de Défense", icon: <Shield size={24} />, desc: "Sécuriser les dépendances critiques.", tags: ["Résilience", "Stock Stratégique", "Blindage"] },
-        { id: "int", title: "Extraction Géopolitique", icon: <Globe size={24} />, desc: "Cartographier le retour de la puissance brute.", tags: ["Cartographie des Risques", "Bruxelles", "Guerre Commerciale"] }
+        { id: "reg", title: "Régulation Mondiale", icon: <FileText size={24} />, desc: "Extraterritorialité et guerre cognitive.", tags: ["Lawfare", "Souveraineté", "Lobbying"] },
+        { id: "tech", title: "Autonomie Tech", icon: <Cpu size={24} />, desc: "Transformer le chaos en signaux.", tags: ["OSINT", "IA Agentique", "Cyber"] },
+        { id: "def", title: "Économie de Défense", icon: <Shield size={24} />, desc: "Sécuriser les dépendances critiques.", tags: ["Résilience", "Stocks", "Blindage"] },
+        { id: "int", title: "Géopolitique", icon: <Globe size={24} />, desc: "Cartographier le retour de la puissance brute.", tags: ["Risque", "Bruxelles", "Trade War"] }
       ]
     },
     servicesPage: {
-      subtitle: "Contrôle de Commandement",
+      subtitle: "Commandement",
       title: "Advisory",
-      cta: "Explorer le Cadre Advisory",
-      intro: "Des modèles d'engagement sur mesure conçus pour les dirigeants qui doivent naviguer dans l'incertitude radicale et la friction géopolitique complexe.",
+      cta: "Explorer le Cadre",
+      intro: "Réalignez votre trajectoire face aux frictions mondiales. Nous décodons la puissance pour protéger votre souveraineté.",
       items: [
         { 
           title: "Conseil Stratégique", 
           subtitle: "Master Brief", 
           icon: <Briefcase size={24} />,
-          desc: "Un réalignement radical de votre posture d'entreprise. Nous auditons votre souveraineté opérationnelle, cartographions votre exposition aux risques mondiaux et redéfinissons votre trajectoire stratégique.",
-          features: ["Audit Complet de Souveraineté", "Stratégie de Découplage de Marché", "Formation Conceptuelle Exécutive"]
+          desc: "Réalignement radical. Audit de souveraineté, cartographie d'exposition et redéfinition de trajectoire.",
+          features: ["Audit Souveraineté", "Stratégie Découplage", "Formation Exécutive"]
         },
         { 
-          title: "Second avis", 
+          title: "Second Avis", 
           subtitle: "Red Teaming", 
           icon: <Eye size={24} />,
-          desc: "Stress-test rigoureux de vos hypothèses fondamentales. Nous agissons comme force d'opposition pour exposer les angles morts, défier le consensus et fortifier votre prise de décision.",
-          features: ["Extraction des Angles Morts", "Analyse Pré-mortem Stratégique", "Simulation de Dissidence"]
+          desc: "Stress-test des hypothèses. Exposition des angles morts et défi du consensus.",
+          features: ["Angles Morts", "Analyse Pré-mortem", "Simulation Dissidence"]
         },
         { 
-          title: "Analyses", 
+          title: "Intelligence continue", 
           subtitle: "Signal 24/7", 
           icon: <Radar size={24} />,
-          desc: "Extraction continue et automatisée de signaux couplée à une analyse humaine d'élite. Recevez des briefings mensuels haute fidélité pour garder une longueur d'avance sur les menaces émergentes.",
-          features: ["Rapport de Signal Mensuel", "Accès Direct aux Nœuds OSINT", "Corrélation des Menaces en Temps Réel"]
+          desc: "Extraction de signaux automatisée et analyse d'élite. Anticiper les menaces.",
+          features: ["Rapports Mensuels", "Accès OSINT", "Corrélation Temps Réel"]
         }
       ]
     },
     educationPage: {
-      subtitle: "Leadership Augmenté",
+      subtitle: "Leadership",
       title: "Formation Exécutive.",
-      cta: "Voir les Programmes de Formation",
-      intro: "Transférer le concept d'avance directement à votre équipe dirigeante grâce à des modules de formation intensifs de haut niveau.",
+      cta: "Voir les Programmes",
+      intro: "Transfert d'avance stratégique par des immersions intensives de haut niveau pour les décideurs.",
       offers: [
         { 
           id: "exco", 
           title: "EXCO Stratégique", 
           icon: <Users size={24} />, 
-          desc: "Sessions intensives d'alignement au niveau du conseil d'administration conçues pour synchroniser votre comité exécutif autour des nouvelles réalités géopolitiques.",
-          details: ["Stress Tests Géopolitiques", "Red-Teaming en Salle de Conseil"]
+          desc: "Alignement du conseil face aux nouvelles réalités géopolitiques.",
+          details: ["Stress Tests", "Red-Teaming"]
         },
         { 
           id: "seminars", 
-          title: "Séminaires d'Entreprise", 
+          title: "Séminaires", 
           icon: <GraduationCap size={24} />, 
-          desc: "Immersions dirigées par des experts se concentrant sur des points de friction spécifiques, fournissant à vos équipes les cadres nécessaires pour opérer dans un monde contesté.",
-          details: ["Souveraineté et Sécurité des Données", "Naviguer dans l'Économie de Guerre"]
+          desc: "Immersions expertes sur les points de friction et cadres contestés.",
+          details: ["Souveraineté Données", "Économie de Guerre"]
         }
       ]
     },
     teamSection: {
-      subtitle: "Les Opérationnels",
+      subtitle: "Notre équipe de commandement",
       title: "Commandement Stratégique.",
       members: [
         {
@@ -743,22 +805,57 @@ const UI_TEXT: Record<Language, any> = {
       ]
     },
     contactPage: {
-      subtitle: "Accès Sécurisé",
+      subtitle: "Sécurisé",
       title: "Initier un Mandat.",
-      intro: "Établir une ligne de communication sécurisée.",
+      intro: "Établir une ligne sécurisée.",
       labels: {
-        name: "Utilisateur Identifié",
-        email: "Mail d'Entreprise Sécurisé",
+        name: "Utilisateur",
+        email: "Mail Sécurisé",
         company: "Organisation",
-        subject: "Type d'Intention",
-        message: "Brief de Mandat / Intention",
-        submit: "Envoyer le Message",
-        success: "Message transmis. Traité avec une discrétion absolue."
+        subject: "Intention",
+        message: "Brief",
+        submit: "Transmettre",
+        success: "Transmis. Discrétion absolue."
       },
-      subjects: ["Mandat Stratégique", "Formation Exécutive", "Briefing de Défense", "Red Teaming"]
+      subjects: ["Mandat", "Formation", "Défense", "Red Teaming"]
     },
-    finalCta: { title: "Retrouvez l'Avance.", desc: "Construisez des stratégies que vos concurrents n'ont pas.", ctaPrimary: "Établir une Session" },
-    footer: { quote: "Contournez le consensus. Naviguez les nouvelles règles.", legal: "Protocoles", privacy: "Politique de Données", methodology: "Théorie de l'Action" }
+    finalCta: { title: "Retrouvez l'Avance.", desc: "Construisez des stratégies inaccessibles aux autres.", ctaPrimary: "Établir une Session" },
+    useCaseTaiwan: {
+      subtitle: "Simulation",
+      title: "L'Équation Taïwan.",
+      intro: "Et si la Chine s'emparait de Taïwan ? Analyse des basculements irréversibles en Tech & Finance.",
+      scenario: "Réunification Cinétique & Blocus Global",
+      methodology: {
+        ai: {
+          title: "IA : Les Veilleurs",
+          desc: "Agents propriétaires surveillant les frictions ignorées par les audits standards.",
+          items: [
+            { title: "Nœud OSINT", desc: "Suivi temps réel de la logistique maritime et des signaux de mobilisation.", icon: <Radar size={24} /> },
+            { title: "Graphe Tech", desc: "Cartographie des dépendances TSMC et points d'étranglement.", icon: <Cpu size={24} /> },
+            { title: "Moteur Sanctions", desc: "Modélisation prédictive des 'Rideaux de Fer Numériques' sur les flux.", icon: <Binary size={24} /> }
+          ]
+        },
+        advisory: {
+          title: "Advisory : Décision",
+          desc: "Jugement humain naviguant la fin de la mondialisation linéaire.",
+          items: [
+            { title: "Découplage", desc: "Sortie progressive des dépendances sans perte de vitesse.", icon: <Split size={24} /> },
+            { title: "Red Teaming", desc: "Stress-test stratégique face au découplage total US-Chine.", icon: <Eye size={24} /> },
+            { title: "Second Avis", desc: "Vision à contre-courant sur le consensus 'Une seule Chine'.", icon: <Target size={24} /> }
+          ]
+        },
+        education: {
+          title: "Formation : Bouclier",
+          desc: "Transférer l'avance à votre comité exécutif.",
+          items: [
+            { title: "War Games EXCO", desc: "Simulation des 72 premières heures pour trouver les ruptures.", icon: <Shield size={24} /> },
+            { title: "Économie Guerre", desc: "Former les équipes à opérer sous sanctions et haute friction.", icon: <GraduationCap size={24} /> }
+          ]
+        }
+      },
+      cta: "Demander le Briefing"
+    },
+    footer: { quote: "Bypass consensus. Navigate the new rules.", legal: "Protocoles", privacy: "Politique", methodology: "Action" }
   }
 };
 
@@ -785,11 +882,11 @@ const PrometheusIcon = ({ className = "w-8 h-8" }: { className?: string }) => (
   <Flame className={className} />
 );
 
-const SectionHeading = ({ subtitle, title, mono = false, theme = 'dark' }: { subtitle: string, title: string, mono?: boolean, theme?: 'dark' | 'light' }) => (
+const SectionHeading = ({ subtitle, title, mono = false, theme = 'dark', accentColor }: { subtitle: string, title: string, mono?: boolean, theme?: 'dark' | 'light', accentColor?: string }) => (
   <div className="mb-16">
     <div className="flex items-center gap-3 mb-5">
-      <div className={`w-8 h-[2px] ${theme === 'light' ? 'bg-[#8c7324]' : 'bg-[#d4af37]'}`}></div>
-      <p className={`font-mono ${theme === 'light' ? 'text-[#8c7324]' : 'text-[#d4af37]'} tracking-[0.2em] text-[13px] font-bold`}>{subtitle}</p>
+      <div className={`w-8 h-[2px] ${accentColor ? accentColor : theme === 'light' ? 'bg-[#8c7324]' : 'bg-[#d4af37]'}`}></div>
+      <p className={`font-mono ${accentColor ? accentColor.replace('bg-', 'text-') : theme === 'light' ? 'text-[#8c7324]' : 'text-[#d4af37]'} tracking-[0.2em] text-[13px] font-bold`}>{subtitle}</p>
     </div>
     <h2 className={`${mono ? 'font-mono tracking-tighter' : 'font-sans tracking-tight'} text-4xl md:text-6xl lg:text-7xl leading-[1.1] md:leading-[1.15] ${theme === 'light' ? 'text-slate-950' : 'text-white'} relative z-10`}>{title}</h2>
   </div>
@@ -1032,12 +1129,159 @@ const FoundryView = ({ lang }: { lang: Language }) => {
   );
 };
 
+// --- Use Case: Taiwan ---
+
+const UseCaseTaiwanView = ({ lang }: { lang: Language }) => {
+  const t = UI_TEXT[lang].useCaseTaiwan;
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="pt-32 pb-48 px-6 relative overflow-hidden"
+    >
+      {/* Tactical Scanline Effect */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03] z-0">
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,0,0,0.1)_1px,transparent_1px)] bg-[size:100%_4px] animate-scan"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <SectionHeading subtitle={t.subtitle} title={t.title} accentColor="bg-red-500" />
+        
+        <div className="max-w-4xl mb-24">
+          <motion.p 
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-3xl md:text-5xl font-sans tracking-tight text-white leading-tight font-bold mb-10"
+          >
+            {t.intro}
+          </motion.p>
+          <motion.div 
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: 0.4 }}
+            className="inline-block font-mono text-red-500 text-[12px] uppercase font-black tracking-widest bg-red-500/10 px-8 py-4 rounded-full border border-red-500/20 animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.2)]"
+          >
+            {t.scenario}
+          </motion.div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* AI Section */}
+          <motion.div 
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            className="glass-panel p-10 rounded-[3rem] border-[#d4af37]/20 relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent opacity-50"></div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 bg-[#d4af37]/10 border border-[#d4af37]/30 text-[#d4af37] flex items-center justify-center rounded-2xl">
+                  <Cpu size={28} />
+                </div>
+                <h3 className="text-2xl font-sans tracking-tight text-white font-bold">{t.methodology.ai.title}</h3>
+              </div>
+              <p className="text-slate-300 font-mono text-[14px] mb-12 leading-relaxed font-medium">{t.methodology.ai.desc}</p>
+              <div className="space-y-10">
+                {t.methodology.ai.items.map((item: any, i: number) => (
+                  <div key={i} className="border-l-2 border-[#d4af37]/30 pl-6 group/item">
+                    <div className="flex items-center gap-4 text-white mb-3">
+                      <span className="text-[#d4af37] group-hover/item:scale-110 transition-transform">{item.icon}</span>
+                      <span className="font-sans font-bold text-lg">{item.title}</span>
+                    </div>
+                    <p className="font-mono text-[12px] text-slate-400 leading-relaxed font-medium">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Advisory Section */}
+          <motion.div 
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="glass-panel p-10 rounded-[3rem] border-red-500/20 relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-50"></div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 bg-red-500/10 border border-red-500/30 text-red-400 flex items-center justify-center rounded-2xl">
+                  <Briefcase size={28} />
+                </div>
+                <h3 className="text-2xl font-sans tracking-tight text-white font-bold">{t.methodology.advisory.title}</h3>
+              </div>
+              <p className="text-slate-300 font-mono text-[14px] mb-12 leading-relaxed font-medium">{t.methodology.advisory.desc}</p>
+              <div className="space-y-10">
+                {t.methodology.advisory.items.map((item: any, i: number) => (
+                  <div key={i} className="border-l-2 border-red-400/30 pl-6 group/item">
+                    <div className="flex items-center gap-4 text-white mb-3">
+                      <span className="text-red-400 group-hover/item:scale-110 transition-transform">{item.icon}</span>
+                      <span className="font-sans font-bold text-lg">{item.title}</span>
+                    </div>
+                    <p className="font-mono text-[12px] text-slate-400 leading-relaxed font-medium">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Education Section */}
+          <motion.div 
+            initial={{ y: 30, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="glass-panel p-10 rounded-[3rem] border-slate-500/20 relative overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-500/5 to-transparent opacity-50"></div>
+            <div className="relative z-10">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-14 h-14 bg-slate-500/10 border border-slate-500/30 text-slate-400 flex items-center justify-center rounded-2xl">
+                  <GraduationCap size={28} />
+                </div>
+                <h3 className="text-2xl font-sans tracking-tight text-white font-bold">{t.methodology.education.title}</h3>
+              </div>
+              <p className="text-slate-300 font-mono text-[14px] mb-12 leading-relaxed font-medium">{t.methodology.education.desc}</p>
+              <div className="space-y-10">
+                {t.methodology.education.items.map((item: any, i: number) => (
+                  <div key={i} className="border-l-2 border-slate-400/30 pl-6 group/item">
+                    <div className="flex items-center gap-4 text-white mb-3">
+                      <span className="text-slate-400 group-hover/item:scale-110 transition-transform">{item.icon}</span>
+                      <span className="font-sans font-bold text-lg">{item.title}</span>
+                    </div>
+                    <p className="font-mono text-[12px] text-slate-400 leading-relaxed font-medium">{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-32 text-center"
+        >
+          <button onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })} className="px-16 py-8 bg-[#d4af37] text-slate-950 font-black uppercase tracking-[0.3em] rounded-2xl hover:scale-105 transition-all shadow-[0_0_50px_rgba(239,68,68,0.3)] text-sm">
+            {t.cta}
+          </button>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+};
+
 // --- Landing View ---
 
 const LandingView = ({ lang, setPage, t }: { lang: Language, setPage: (p: string) => void, t: any }) => {
   const heroSub = useTypewriter(t.hero.subheadline, 20);
   const intelT = t.intelligence;
-  const advisoryT = t.servicesPage;
+  const servicesT = t.servicesPage;
   const educationT = t.educationPage;
   const briefingsT = t.briefingsPage;
   const foundryT = t.foundryPage;
@@ -1099,7 +1343,52 @@ const LandingView = ({ lang, setPage, t }: { lang: Language, setPage: (p: string
         </div>
       </section>
 
-      {/* 1) DOCTRINE SECTION WITH VIDEO BACKGROUND */}
+      {/* 1) WHY A NEW GENERATION FIRM - Rationale Section */}
+      <section className="py-24 md:py-32 px-6 relative overflow-hidden bg-[#0d0d0b] border-b border-white/5">
+        <div className="absolute inset-0 bg-grid-tactical opacity-10"></div>
+        <div className="max-w-4xl mx-auto relative z-10 text-left">
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] mb-2 max-w-xl text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
+            {caseT.subtitle}
+          </h2>
+          <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] mb-8 max-w-xl text-[#d4af37]" style={{ fontFamily: "'Playfair Display', serif" }}>
+            {caseT.title}
+          </h2>
+          <p className="font-serif text-lg md:text-xl italic text-slate-500 mb-16 max-w-2xl" style={{ fontFamily: "'Playfair Display', serif" }}>
+            {caseT.intro}
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[1px] bg-white/10 border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
+            {caseT.cells.map((cell: any, idx: number) => (
+              <div key={idx} className={`p-10 md:p-14 flex flex-col gap-6 transition-all duration-700 hover:bg-white/[0.03] group ${cell.accent ? 'bg-white/[0.02]' : 'bg-[#0d0d0b]'}`}>
+                <div className="flex items-center gap-4">
+                  <div className={`w-1 h-4 ${cell.accent ? 'bg-[#d4af37]' : 'bg-white/20'}`}></div>
+                  <p className={`font-mono text-[10px] tracking-[0.2em] uppercase font-black ${cell.accent ? 'text-[#d4af37]' : 'text-white/40'}`}>
+                    {cell.label}
+                  </p>
+                </div>
+                <p className={`font-sans text-lg md:text-xl leading-relaxed font-medium transition-colors ${cell.accent ? 'text-white' : 'text-slate-400 group-hover:text-slate-200'}`}
+                   dangerouslySetInnerHTML={{ __html: cell.body }}
+                />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-1 flex flex-col md:flex-row items-stretch gap-[1px] bg-white/10 border border-white/10 rounded-2xl overflow-hidden shadow-2xl shadow-black/50">
+            <div className="p-10 md:p-14 bg-[#0d0d0b] flex-1 flex items-center italic">
+              <p className="font-serif text-xl md:text-2xl text-white/40 leading-relaxed italic" style={{ fontFamily: "'Playfair Display', serif" }}>
+                {caseT.quote}
+              </p>
+            </div>
+            <div className="p-10 md:p-14 bg-white/[0.02] flex-1 flex items-center">
+              <p className="font-serif text-2xl md:text-3xl font-bold text-[#d4af37] leading-tight max-w-[280px]" style={{ fontFamily: "'Playfair Display', serif" }}>
+                {caseT.answer}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2) DOCTRINE SECTION WITH VIDEO BACKGROUND */}
       <section className="py-32 md:py-48 px-6 relative overflow-hidden border-y border-white/10 group">
         <div className="absolute inset-0 z-0">
           <video 
@@ -1149,211 +1438,160 @@ const LandingView = ({ lang, setPage, t }: { lang: Language, setPage: (p: string
       </section>
 
       {/* 2) SYNTHESIZED INTELLIGENCE SECTION */}
-      <section className="py-32 md:py-48 px-6 relative overflow-hidden border-b border-white/10 bg-black/20">
+      <section className="py-24 md:py-32 px-6 relative overflow-hidden border-b border-white/10 bg-black/20">
         <div className="max-w-7xl mx-auto">
-          <SectionHeading subtitle={intelT.subtitle} title={intelT.title} mono={true} />
-          
-          <div className="max-w-4xl mb-24">
-             <p className="text-2xl md:text-4xl font-sans tracking-tight text-white leading-tight font-bold mb-8">
-               {intelT.story.split('.')[0]}.
-             </p>
-             <p className="text-lg md:text-xl font-mono text-slate-300 leading-relaxed max-w-3xl">
-               {intelT.story.substring(intelT.story.indexOf('.') + 1).trim()}
-             </p>
-             <div className="w-16 h-1 bg-[#d4af37] mt-12"></div>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-            {/* AI Side */}
-            <div className="lg:col-span-6 glass-panel p-12 rounded-[3rem] border-[#d4af37]/20 relative overflow-hidden group hover:border-[#d4af37]/50 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#d4af37]/5 to-transparent opacity-50"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 glass-panel border-[#d4af37]/30 flex items-center justify-center text-[#d4af37] rounded-2xl shadow-xl mb-8 group-hover:scale-110 transition-transform duration-500">
-                  <Cpu size={32} />
-                </div>
-                <h3 className="text-5xl font-sans tracking-tight text-white font-bold mb-4">{intelT.aiTitle}</h3>
-                <p className="text-[#d4af37] font-mono text-[14px] font-bold tracking-widest mb-12 uppercase">{intelT.aiDesc}</p>
-                
-                <div className="space-y-10">
-                  {intelT.aiItems.map((item: any, i: number) => (
-                    <div key={i} className="space-y-3 border-l-2 border-[#d4af37]/30 pl-6 group/item hover:border-[#d4af37] transition-colors">
-                       <div className="flex items-center gap-4 text-slate-200">
-                         <div className="text-[#d4af37] opacity-70 group-hover/item:opacity-100 transition-opacity">{item.icon}</div>
-                         <span className="font-sans tracking-tight font-bold text-xl group-hover/item:text-[#d4af37] transition-colors">{item.title}</span>
-                       </div>
-                       <p className="font-mono text-[12px] tracking-widest text-slate-300 font-medium leading-relaxed">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Human Side */}
-            <div className="lg:col-span-6 glass-panel p-12 rounded-[3rem] border-blue-500/20 relative overflow-hidden group hover:border-blue-500/50 transition-all duration-500 lg:mt-32">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-50"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 glass-panel border-blue-400/30 flex items-center justify-center text-blue-400 rounded-2xl shadow-xl mb-8 group-hover:scale-110 transition-transform duration-500">
-                  <Anchor size={32} />
-                </div>
-                <h3 className="text-5xl font-sans tracking-tight text-white font-bold mb-4">{intelT.humanTitle}</h3>
-                <p className="text-blue-400 font-mono text-[14px] font-bold tracking-widest mb-12 uppercase">{intelT.humanDesc}</p>
-                
-                <div className="space-y-10">
-                  {intelT.humanItems.map((item: any, i: number) => (
-                    <div key={i} className="space-y-3 border-l-2 border-blue-400/30 pl-6 group/item hover:border-blue-400 transition-colors">
-                       <div className="flex items-center gap-4 text-slate-200">
-                         <div className="text-blue-400 opacity-70 group-hover/item:opacity-100 transition-opacity">{item.icon}</div>
-                         <span className="font-sans tracking-tight font-bold text-xl group-hover/item:text-blue-400 transition-colors">{item.title}</span>
-                       </div>
-                       <p className="font-mono text-[12px] tracking-widest text-slate-300 font-medium leading-relaxed">{item.desc}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Synthesis Banner */}
-          <div className="mt-24 glass-panel p-10 rounded-full border-white/10 flex flex-col md:flex-row items-center justify-center gap-8 relative overflow-hidden group">
-            <div className="absolute inset-0 bg-gradient-to-r from-[#d4af37]/10 via-transparent to-blue-500/10 opacity-50"></div>
-            <Sparkles size={28} className="text-[#d4af37] animate-pulse relative z-10" />
-            <span className="font-mono text-[14px] uppercase tracking-[0.4em] text-white font-black relative z-10 text-center">{intelT.synthesis}</span>
-            <Sparkles size={28} className="text-blue-400 animate-pulse relative z-10" />
-          </div>
-        </div>
-      </section>
-
-      {/* 3) CASE STUDY / USE CASE STORYTELLING */}
-      <section className="py-32 md:py-48 px-6 relative overflow-hidden bg-black/40 border-b border-white/5">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
-        <div className="max-w-7xl mx-auto">
-          <SectionHeading subtitle={caseT.subtitle} title={caseT.title} />
-          
-          <div className="mb-20 text-center max-w-3xl mx-auto">
-            <span className="inline-block font-mono text-[#d4af37] text-[11px] uppercase font-black tracking-widest bg-[#d4af37]/10 px-6 py-3 rounded-full border border-[#d4af37]/20 mb-8">
-              {caseT.scenario}
-            </span>
-            <p className="text-slate-200 font-sans text-xl leading-relaxed">
-              When standard operations fail, sovereign intelligence provides the tactical advantage. Compare the outcomes.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-1 px-1 rounded-[3rem] overflow-hidden">
-            {/* The Mainstream Side */}
-            <div className="bg-slate-950/60 p-12 md:p-16 relative group overflow-hidden border border-white/5 lg:rounded-l-[3rem] lg:rounded-r-none rounded-[3rem]">
-              <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
-                <ShieldAlert size={160} className="text-slate-500" />
-              </div>
-              <div className="flex items-center gap-4 mb-10">
-                <div className="w-2 h-2 bg-slate-500 rounded-full"></div>
-                <h4 className="font-sans tracking-tight text-4xl text-slate-300 font-bold">{caseT.mainstream.title}</h4>
-              </div>
-              <p className="text-slate-300 font-mono text-[15px] font-medium leading-relaxed mb-16 relative z-10">
-                {caseT.mainstream.desc}
+          <div className="flex flex-col lg:flex-row items-end justify-between gap-12 mb-20">
+            <div className="max-w-2xl">
+              <SectionHeading subtitle={intelT.subtitle} title={intelT.title} mono={true} />
+              <p className="text-xl md:text-2xl font-sans tracking-tight text-white leading-tight font-bold mb-6">
+                {intelT.story.split('. ')[0]}. {intelT.story.split('. ')[1]}.
               </p>
-              <div className="pt-10 border-t border-white/10 relative z-10 bg-black/40 -mx-12 -mb-12 p-12 mt-12 lg:rounded-bl-[3rem]">
-                <span className="font-mono text-[10px] uppercase text-red-500/80 font-black block mb-4 tracking-widest flex items-center gap-2">
-                  <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse"></div>
-                  Negative Signal Observed
-                </span>
-                <p className="text-white font-sans tracking-tight text-2xl leading-relaxed font-medium">{caseT.mainstream.outcome}</p>
-              </div>
-            </div>
-
-            {/* Prometheus Side */}
-            <div className="bg-gradient-to-br from-[#d4af37]/10 to-transparent p-12 md:p-16 relative group overflow-hidden border border-[#d4af37]/20 lg:rounded-r-[3rem] lg:rounded-l-none rounded-[3rem]">
-              <div className="absolute inset-0 bg-[#d4af37]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-              <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity duration-700 group-hover:scale-110 group-hover:rotate-12">
-                <ZapIcon size={160} className="text-[#d4af37]" />
-              </div>
-              <div className="flex items-center gap-4 mb-10 relative z-10">
-                <div className="w-2.5 h-2.5 bg-[#d4af37] rounded-full animate-pulse shadow-[0_0_15px_#d4af37]"></div>
-                <h4 className="font-sans tracking-tight text-4xl text-[#d4af37] font-bold">{caseT.prometheus.title}</h4>
-              </div>
-              <p className="text-slate-100 font-mono text-[15px] font-medium leading-relaxed mb-16 relative z-10">
-                {caseT.prometheus.desc}
+              <p className="text-sm md:text-md font-mono text-slate-400 leading-relaxed opacity-80 font-black max-w-xl">
+                {intelT.story.split('. ').slice(2).join('. ')}
               </p>
-              <div className="pt-10 border-t border-[#d4af37]/30 relative z-10 bg-[#d4af37]/10 -mx-12 -mb-12 p-12 mt-12 lg:rounded-br-[3rem]">
-                <span className="font-mono text-[10px] uppercase text-[#d4af37] font-black block mb-4 tracking-widest flex items-center gap-2">
-                  <Target size={12} />
-                  Advantage Detected
-                </span>
-                <p className="text-white font-sans tracking-tight text-2xl font-bold leading-relaxed">{caseT.prometheus.outcome}</p>
-              </div>
             </div>
+            <div className="w-16 h-1 bg-[#d4af37] hidden lg:block mb-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {intelT.layers.map((layer: any, i: number) => (
+              <div key={layer.id} className="glass-panel p-8 rounded-[2rem] border-white/5 relative group hover:bg-white/[0.02] transition-all duration-500 flex flex-col h-full">
+                {/* Tactical Number */}
+                <div className="flex items-center justify-between mb-8">
+                  <span className="font-mono text-3xl font-black text-white/5 group-hover:text-white/10 transition-colors">
+                    {(i + 1).toString().padStart(2, '0')}
+                  </span>
+                  <div className={`w-3 h-3 rounded-full ${layer.dot} ${layer.shadow}`}></div>
+                </div>
+
+                <div className="mb-6">
+                  <p className="text-[#d4af37] font-mono text-[9px] uppercase font-black tracking-[0.2em] mb-2 opacity-60">
+                    {layer.subtitle}
+                  </p>
+                  <h3 className="text-2xl font-sans font-bold text-white tracking-tight leading-tight">
+                    {layer.title}
+                  </h3>
+                </div>
+
+                <div className="mt-auto pt-6 border-t border-white/5">
+                  <p className="text-slate-400 font-mono text-[13px] leading-relaxed font-medium">
+                    {layer.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
           
-          <div className="mt-24 flex flex-col md:flex-row items-center justify-between gap-10 p-12 glass-panel rounded-[3rem] border-[#d4af37]/20 bg-gradient-to-r from-transparent via-[#d4af37]/5 to-transparent relative overflow-hidden group">
-            <div className="absolute inset-0 bg-[#d4af37]/5 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
-            <div className="flex items-center gap-8 relative z-10">
-              <div className="w-20 h-20 shrink-0 rounded-2xl border-2 border-[#d4af37] flex items-center justify-center text-[#d4af37] shadow-xl shadow-[#d4af37]/20 bg-black/40 group-hover:bg-[#d4af37] group-hover:text-slate-950 transition-colors duration-500">
-                <Split size={32} />
-              </div>
-              <div>
-                <p className="font-sans tracking-tight text-3xl text-white font-bold mb-3">Decide against the consensus.</p>
-                <p className="font-mono text-[12px] uppercase text-slate-300 font-black tracking-widest">We transform legal friction into competitive superiority.</p>
-              </div>
+          {/* Synthesis Banner - More compact */}
+          <div className="mt-16 glass-panel py-8 px-12 rounded-2xl border-white/5 flex flex-col items-center justify-center relative overflow-hidden group max-w-xl mx-auto text-center">
+            <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent"></div>
+            
+            <div className="flex items-center gap-4 mb-3">
+              <Sparkles size={18} className="text-emerald-500 animate-pulse" />
+              <div className="h-[1px] w-8 bg-white/10"></div>
+              <Sparkles size={18} className="text-amber-600 animate-pulse" />
             </div>
-            <button onClick={() => setPage('contact')} className="shrink-0 px-10 py-5 bg-[#d4af37] text-slate-950 font-black uppercase tracking-widest text-[11px] rounded-xl hover:bg-white transition-all shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.5)] relative z-10 flex items-center gap-3">
-              Establish Case Session <ArrowRight size={16} />
-            </button>
+            
+            <h4 className="text-white font-mono text-[13px] uppercase tracking-[0.4em] font-black">
+              {intelT.synthesis}
+            </h4>
           </div>
         </div>
       </section>
 
       {/* 3.5) ENGAGEMENTS (ADVISORY + EDUCATION COMBINED) */}
-      <section className="py-32 md:py-48 px-6 bg-white/[0.01] border-b border-white/10">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-32 md:py-48 px-6 bg-black relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(212,175,55,0.03),transparent_70%)]"></div>
+        
+        <div className="max-w-7xl mx-auto relative z-10">
           <SectionHeading subtitle={solutionsT.subtitle} title={solutionsT.title} />
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Advisory Column */}
-            <div>
-              <div className="flex items-center gap-4 mb-12">
-                <Briefcase size={24} className="text-[#d4af37]" />
-                <h3 className="text-3xl font-sans tracking-tight text-white font-bold">{advisoryT.title}</h3>
-              </div>
-              <div className="space-y-4">
-                {advisoryT.items.slice(0, 3).map((item: any, i: number) => (
-                  <div key={i} className="glass-panel p-8 rounded-3xl border-white/5 group hover:border-[#d4af37]/30 transition-all bg-slate-900/20 hover:bg-slate-900/40">
-                    <h4 className="text-2xl font-sans tracking-tight text-white mb-3 font-bold group-hover:text-[#d4af37] transition-colors">{item.title}</h4>
-                    <p className="text-slate-300 font-mono text-[13px] font-medium leading-relaxed">{item.desc}</p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full mt-24">
+            {/* Advisory Pillar */}
+            <div className="p-8 md:p-14 lg:border-r border-white/10 relative group">
+              <div className="flex flex-col gap-8">
+                <div className="space-y-6">
+                  <div className="inline-flex items-center gap-4 py-2 px-5 bg-[#d4af37]/5 border border-[#d4af37]/20 rounded-full">
+                    <Briefcase size={20} className="text-[#d4af37]" />
+                    <span className="font-mono text-[10px] uppercase font-black tracking-[0.3em] text-[#d4af37]">{servicesT.subtitle || 'Mandates'}</span>
                   </div>
-                ))}
+                  <h3 className="text-4xl md:text-5xl font-sans tracking-tight text-white font-bold leading-none">
+                    {servicesT.title}
+                  </h3>
+                  <p className="text-slate-400 font-mono text-[15px] leading-relaxed max-w-md border-l border-[#d4af37]/30 pl-6 py-2">
+                    {servicesT.intro}
+                  </p>
+                </div>
+
+                <div className="space-y-6 mt-4">
+                  {servicesT.items.slice(0, 3).map((item: any, i: number) => (
+                    <div key={i} className="group/item relative overflow-hidden p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-[#d4af37]/30 group-hover/item:bg-[#d4af37] transition-colors"></div>
+                      <h4 className="text-xl font-sans tracking-tight text-white mb-2 font-bold transition-colors">{item.title}</h4>
+                      <p className="text-slate-400 font-mono text-[13px] font-medium leading-relaxed opacity-80">{item.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-8">
+                  <button onClick={() => setPage('services')} className="flex items-center gap-4 font-mono text-[11px] uppercase font-black text-[#d4af37] tracking-[0.4em] hover:gap-8 transition-all">
+                    {servicesT.cta} <ArrowRight size={18} />
+                  </button>
+                </div>
               </div>
-              <button onClick={() => setPage('services')} className="mt-8 group flex items-center gap-4 font-mono text-[11px] uppercase font-black text-[#d4af37] tracking-[0.3em]">
-                {advisoryT.cta} <ArrowRight size={16} className="group-hover:translate-x-3 transition-transform" />
-              </button>
             </div>
 
-            {/* Education Column */}
-            <div>
-              <div className="flex items-center gap-4 mb-12">
-                <GraduationCap size={24} className="text-[#d4af37]" />
-                <h3 className="text-3xl font-sans tracking-tight text-white font-bold">{educationT.title}</h3>
-              </div>
-              <div className="space-y-4">
-                {educationT.offers.map((offer: any, i: number) => (
-                  <div key={i} className="glass-panel p-8 rounded-3xl border-white/5 group hover:border-[#d4af37]/30 transition-all bg-slate-900/20 hover:bg-slate-900/40">
-                    <h4 className="text-2xl font-sans tracking-tight text-white mb-3 font-bold group-hover:text-[#d4af37] transition-colors">{offer.title}</h4>
-                    <p className="text-slate-300 font-mono text-[13px] font-medium leading-relaxed">{offer.desc}</p>
+            {/* Education Pillar */}
+            <div className="p-8 md:p-14 relative group">
+              <div className="flex flex-col gap-8">
+                <div className="space-y-6">
+                  <div className="inline-flex items-center gap-4 py-2 px-5 bg-[#d4af37]/5 border border-[#d4af37]/20 rounded-full">
+                    <GraduationCap size={20} className="text-[#d4af37]" />
+                    <span className="font-mono text-[10px] uppercase font-black tracking-[0.3em] text-[#d4af37]">{educationT.subtitle}</span>
                   </div>
-                ))}
+                  <h3 className="text-4xl md:text-5xl font-sans tracking-tight text-white font-bold leading-none">
+                    {educationT.title}
+                  </h3>
+                  <p className="text-slate-400 font-mono text-[15px] leading-relaxed max-w-md border-l border-[#d4af37]/30 pl-6 py-2">
+                    {educationT.intro}
+                  </p>
+                </div>
+
+                <div className="space-y-6 mt-4">
+                  {educationT.offers.map((offer: any, i: number) => (
+                    <div key={i} className="group/item relative overflow-hidden p-8 rounded-2xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.04] transition-all duration-500 h-full">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-[#d4af37]/30 group-hover/item:bg-[#d4af37] transition-colors"></div>
+                      <h4 className="text-xl font-sans tracking-tight text-white mb-2 font-bold transition-colors">{offer.title}</h4>
+                      <p className="text-slate-400 font-mono text-[13px] font-medium leading-relaxed opacity-80">{offer.desc}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-8">
+                  <button onClick={() => setPage('education')} className="flex items-center gap-4 font-mono text-[11px] uppercase font-black text-[#d4af37] tracking-[0.4em] hover:gap-8 transition-all">
+                    {educationT.cta} <ArrowRight size={18} />
+                  </button>
+                </div>
               </div>
-              <button onClick={() => setPage('education')} className="mt-8 group flex items-center gap-4 font-mono text-[11px] uppercase font-black text-[#d4af37] tracking-[0.3em]">
-                {educationT.cta} <ArrowRight size={16} className="group-hover:translate-x-3 transition-transform" />
-              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* 4) DOMAINS OF EXPERTISE */}
-      <section className="py-32 md:py-48 px-6 relative overflow-hidden bg-black/60 border-b border-white/5">
+      <section className="py-32 md:py-48 px-6 relative overflow-hidden bg-black/60 border-b border-white/5 font-mono">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/20 to-transparent"></div>
         <div className="max-w-7xl mx-auto">
-          <SectionHeading subtitle={t.domains.subtitle} title={t.domains.title} mono={true} />
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-24">
+          <SectionHeading subtitle={t.domains.subtitle} title={t.domains.title} />
+          
+          <div className="max-w-4xl mb-20 p-8 md:p-12 glass-panel border-[#d4af37]/20 bg-gradient-to-br from-[#d4af37]/5 to-transparent rounded-[2.5rem] relative overflow-hidden group">
+            <div className="absolute inset-0 bg-[#d4af37]/2 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+            <p className="text-white font-serif text-xl md:text-2xl leading-relaxed border-l-4 border-[#d4af37] pl-8 italic" style={{ fontFamily: "'Playfair Display', serif" }}>
+              {t.domains.intro}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {t.domains.items.map((item: any, i: number) => (
               <div key={i} className="glass-panel p-8 rounded-3xl border-white/5 group hover:border-[#d4af37]/30 transition-all bg-slate-900/20 hover:bg-slate-900/40 flex flex-col items-center text-center gap-6 shadow-xl shadow-black/20">
                 <div className="w-16 h-16 rounded-full bg-[#d4af37]/10 flex items-center justify-center text-[#d4af37] group-hover:scale-110 group-hover:bg-[#d4af37] group-hover:text-slate-950 transition-all duration-500">
@@ -1835,6 +2073,8 @@ const App: React.FC = () => {
         return 'bg-slate-50'; // Keep flat for light mode readability
       case 'manifesto':
         return 'bg-gradient-to-br from-[#0a0c10] via-[#030406] to-[#000000]'; // Pure Obsidian for Briefing/Manifesto
+      case 'use-case-taiwan':
+        return 'bg-gradient-to-br from-[#1a0a0a] via-[#080404] to-[#000000]'; // Deep Kinetic Red for Taiwan Scenario
       case 'contact':
         return 'bg-gradient-to-br from-[#111111] via-[#080808] to-[#000000]'; // Neutral Deep Black for Contact
       default:
@@ -1848,6 +2088,7 @@ const App: React.FC = () => {
     if (page === 'services') return <ServicesView lang={lang} />;
     if (page === 'education') return <ExecutiveEducationView lang={lang} />;
     if (page === 'foundry') return <FoundryView lang={lang} />;
+    if (page === 'use-case-taiwan') return <UseCaseTaiwanView lang={lang} />;
     if (page === 'contact') return <ContactView lang={lang} />;
     
     // Handle dynamic article routes
